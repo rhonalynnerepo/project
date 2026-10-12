@@ -1,351 +1,76 @@
 <!-- ==================================================================
      THE WEEKLY WRAP-UP
-     Paste this whole block into ONE Custom Code / HTML element on a new
-     GoHighLevel page at /weekly-wrap-up.
+     Paste into ONE Custom Code / HTML element on a GoHighLevel page
+     at /weekly-wrap-up. Self-contained: fonts and styles are included.
 
-     Self-contained: fonts, stylesheet and the .at-page wrapper are all
-     here, because that CSS lives in each page's own code block rather
-     than site-wide. Keep the wrapper — every rule is scoped to it.
+     The card is a visual match for the site's existing popup — same
+     #faf5f0, 10px radius, 520px cap, padding, shadow, eyebrow, DM Serif
+     title and fine print — and embeds the same live form, so signups
+     land in the same place. No close button: nothing to close on a page.
      ================================================================== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
-/* Warm brown palette: the accent is a mid-tone brown, held at low
-   saturation around hue 25deg so it never reads as orange or rust. */
-.at-page{
-
-  --brand:#7a5540; --brand-deep:#5c3d2c; --brand-soft:#d3b9a5;
-  --espresso:#2e211c; --brown:#6e5a4c; --cream:#faf5f0;
-  --sand:#f2ece5; --line:#e3d8cc; --ink:#222222; --muted:#5f544c;
-  --serif:'DM Serif Display', Georgia, 'Times New Roman', serif;
-  --sans:'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  --pad:clamp(20px,5vw,64px);
-  font-family:var(--sans); color:var(--ink); background:var(--cream);
-  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
-
-  /* Full-bleed breakout. GoHighLevel rows are a centred, max-width
-     container, which would otherwise leave white gutters beside every
-     band. Delete these four lines to sit inside the row instead. */
-  width:calc(100vw - var(--at-sbw, 0px));
-  margin-left:calc(50% - 50vw + var(--at-sbw, 0px) / 2);
-  margin-right:calc(50% - 50vw + var(--at-sbw, 0px) / 2);
-  overflow-x:clip;
-}
-.at-page *,.at-page *::before,.at-page *::after{box-sizing:border-box;}
-.at-page p,.at-page h1,.at-page h2,.at-page h3,.at-page h4,.at-page ul,.at-page ol,.at-page figure{margin:0;}
-.at-page ul,.at-page ol{padding:0;list-style:none;}
-.at-page img{max-width:100%;display:block;}
-.at-page a{color:inherit;text-decoration:none;}
-
-.at-page .at-h1,.at-page .at-h2,.at-page .at-h3,.at-page .at-h4{
-  font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em;}
-.at-page .at-h1{font-size:clamp(2.5rem,6.2vw,4.4rem);}
-.at-page .at-h2{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.12;}
-.at-page .at-h3{font-size:clamp(1.3rem,2.2vw,1.6rem);line-height:1.2;}
-.at-page .at-h4{font-size:1.1rem;line-height:1.3;}
-.at-page .at-em{font-style:italic;color:var(--brand);}
-.at-page .at-lead{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted);max-width:62ch;}
-.at-page .at-body{color:var(--muted);max-width:66ch;}
-.at-page .at-h1 + .at-lead,.at-page .at-h2 + .at-lead,.at-page .at-h3 + .at-lead,
-.at-page .at-h1 + .at-body,.at-page .at-h2 + .at-body,.at-page .at-h3 + .at-body,
-.at-page .at-h2 + p,.at-page .at-h3 + p{margin-top:20px;}
-.at-page .at-eyebrow{
-  font-size:.72rem;letter-spacing:.20em;text-transform:uppercase;font-weight:700;
-  color:var(--brand);display:block;margin-bottom:18px;}
-.at-page .at-eyebrow--light{color:var(--brand-soft);}
-
-.at-page .at-wrap{max-width:1180px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
-.at-page .at-band{padding:clamp(64px,9vw,120px) 0;}
-.at-page .at-band--cream{background:var(--cream);}
-.at-page .at-band--sand{background:var(--sand);}
-.at-page .at-band--white{background:#fff;}
-.at-page .at-band--dark{background:var(--espresso);color:#fff;}
-.at-page .at-band--dark .at-body,.at-page .at-band--dark .at-lead{color:rgba(255,255,255,.74);}
-.at-page .at-band--brand{background:var(--brand);color:#fff;}
-.at-page .at-band--brand .at-body,.at-page .at-band--brand .at-lead{color:rgba(255,255,255,.88);}
-.at-page .at-grid{display:grid;gap:clamp(24px,3.4vw,44px);}
-.at-page .at-g2{grid-template-columns:repeat(2,minmax(0,1fr));}
-.at-page .at-g3{grid-template-columns:repeat(3,minmax(0,1fr));}
-.at-page .at-g4{grid-template-columns:repeat(4,minmax(0,1fr));}
-.at-page .at-split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center;}
-.at-page .at-head{max-width:720px;margin-bottom:clamp(36px,5vw,60px);}
-.at-page .at-head--center{margin-left:auto;margin-right:auto;text-align:center;}
-.at-page .at-rule{height:1px;background:var(--line);border:0;margin:0;}
-
-.at-page .at-btn{
-  display:inline-flex;align-items:center;gap:.6em;justify-content:center;
-  font-family:var(--sans);font-size:.94rem;font-weight:700;letter-spacing:.02em;
-  padding:16px 30px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;
-  background:var(--brand);color:#fff;transition:background .18s ease,transform .18s ease,color .18s ease,border-color .18s ease;}
-.at-page .at-btn:hover{background:var(--brand-deep);transform:translateY(-1px);}
-.at-page .at-btn--ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
-.at-page .at-btn--ghost:hover{background:var(--ink);color:var(--cream);}
-.at-page .at-btn--light{background:#fff;color:var(--espresso);}
-.at-page .at-btn--light:hover{background:var(--cream);color:var(--brand-deep);}
-.at-page .at-btn--onDark{background:transparent;color:#fff;border-color:rgba(255,255,255,.45);}
-.at-page .at-btn--onDark:hover{background:#fff;color:var(--espresso);}
-.at-page .at-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
-.at-page .at-textlink{
-  font-weight:700;font-size:.94rem;color:var(--brand);
-  border-bottom:1.5px solid currentColor;padding-bottom:2px;display:inline-block;}
-.at-page .at-textlink:hover{color:var(--brand-deep);}
-.at-page .at-band--dark .at-textlink{color:var(--brand-soft);}
-
-.at-page .at-card{
-  background:#fff;border:1px solid var(--line);border-radius:6px;
-  padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;gap:14px;height:100%;
-  transition:border-color .2s ease,transform .2s ease;}
-.at-page .at-card:hover{border-color:var(--brand);transform:translateY(-3px);}
-.at-page .at-card__num{
-  font-family:var(--serif);font-size:1.5rem;color:var(--brand);line-height:1;}
-.at-page .at-card p{color:var(--muted);font-size:.97rem;}
-.at-page .at-card .at-textlink{margin-top:auto;align-self:flex-start;}
-.at-page .at-band--dark .at-card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16);}
-.at-page .at-band--dark .at-card p{color:rgba(255,255,255,.72);}
-.at-page .at-band--dark .at-card:hover{border-color:var(--brand-soft);}
-
-.at-page .at-quote{max-width:860px;margin:0 auto;text-align:center;}
-.at-page .at-quote p{
-  font-family:var(--serif);font-size:clamp(1.5rem,3.1vw,2.15rem);line-height:1.32;font-style:italic;}
-.at-page .at-quote cite{
-  display:block;margin-top:26px;font-style:normal;font-size:.78rem;letter-spacing:.2em;
-  text-transform:uppercase;font-weight:700;color:var(--brand);}
-.at-page .at-band--dark .at-quote cite{color:var(--brand-soft);}
-
-.at-page .at-faq{border-top:1px solid var(--line);}
-.at-page .at-faq details{border-bottom:1px solid var(--line);}
-.at-page .at-faq summary{
-  list-style:none;cursor:pointer;padding:24px 40px 24px 0;position:relative;
-  font-family:var(--serif);font-size:1.15rem;line-height:1.35;}
-.at-page .at-faq summary::-webkit-details-marker{display:none;}
-.at-page .at-faq summary::after{
-  content:"+";position:absolute;right:4px;top:22px;font-size:1.5rem;color:var(--brand);
-  transition:transform .2s ease;line-height:1;}
-.at-page .at-faq details[open] summary::after{transform:rotate(45deg);}
-.at-page .at-faq p{color:var(--muted);padding:0 40px 26px 0;max-width:70ch;}
-
-.at-page .at-social{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,4vw,44px);}
-.at-page .at-social a{
-  display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.28);
-  border-radius:999px;padding:9px 18px;font-size:.86rem;font-weight:700;color:rgba(255,255,255,.85);}
-.at-page .at-social a:hover{border-color:var(--brand-soft);color:#fff;}
-.at-page .at-social svg{width:16px;height:16px;fill:currentColor;flex:none;}
-
-.at-page .at-social--light a{border-color:var(--line);color:var(--brand);background:#fff;}
-.at-page .at-social--light a:hover{border-color:var(--brand);color:var(--brand-deep);}
-
-@media (max-width:1120px){
-  .at-page .at-nav__links{gap:20px;}
-  .at-page .at-nav__links a{font-size:.86rem;}
-}
-@media (max-width:980px){
-  .at-page .at-nav__links{
-    display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);
-    flex-direction:column;align-items:stretch;gap:0;padding:8px var(--pad) 20px;
-    border-bottom:1px solid var(--line);}
-  .at-page .at-nav__links a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1rem;}
-  .at-page .at-nav__links a::after{display:none;}
-  .at-page .at-nav[data-open="true"] .at-nav__links{display:flex;}
-  .at-page .at-burger{display:block;}
-  .at-page .at-nav__in{position:relative;}
-
-  .at-page .at-nav .at-btn{display:inline-flex;margin-left:auto;padding:10px 16px;font-size:.8rem;
-    white-space:nowrap;}
-  .at-page .at-nav__in{gap:12px;}
-  .at-page .at-hero__grid,.at-page .at-split{grid-template-columns:1fr;}
-  .at-page .at-frame::after{inset:12px -12px -12px 12px;}
-  .at-page .at-g3,.at-page .at-g4{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .at-page .at-footer__grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-}
-@media (max-width:680px){
-  .at-page{font-size:16px;}
-  .at-page .at-logo{font-size:1.3rem;}
-  .at-page .at-logo small{letter-spacing:.12em;margin-top:5px;}
-  .at-page .at-announce{font-size:.8rem;padding:10px var(--pad);line-height:1.5;}
-  .at-page .at-hero__meta{font-size:.75rem;}
-  .at-page .at-nav__in{padding:14px var(--pad);gap:10px;}
-  .at-page .at-nav .at-btn{padding:9px 13px;font-size:.74rem;}
-  .at-page .at-g2,.at-page .at-g3,.at-page .at-g4{grid-template-columns:1fr;}
-  .at-page .at-svc,.at-page .at-ev,.at-page .at-media{grid-template-columns:1fr;gap:14px;}
-  .at-page .at-btns .at-btn{width:100%;}
-  .at-page .at-footer__grid{grid-template-columns:1fr;}
-}
-@media (prefers-reduced-motion:reduce){
-  .at-page *{transition:none!important;animation:none!important;}
-}
-
-.at-page{max-width:100vw;}
-@media (max-width:520px){
-  .at-page .at-h1{font-size:clamp(2rem,8.6vw,2.7rem);overflow-wrap:break-word;}
-  .at-page .at-h2{font-size:clamp(1.7rem,7.2vw,2.2rem);overflow-wrap:break-word;}
-}
-
-/* ---- The signup card ------------------------------------------
-   The signup card reproduces the live popup's .atnl-dialog exactly:
-   same #faf5f0, 10px radius, 520px cap, clamp padding and shadow,
-   same eyebrow, DM Serif title, body copy and fine print.
-   ------------------------------------------------------------------ */
+.ww-stage,.ww-stage *,.ww-stage *::before,.ww-stage *::after{box-sizing:border-box;}
 .ww-stage{
-  background:#2e211c;                 /* the dim the popup sits over */
+  background:#2e211c;
   padding:clamp(48px,8vw,96px) 20px;
-  display:flex;align-items:center;justify-content:center;}
+  display:flex;align-items:center;justify-content:center;
+  /* Full-bleed: GoHighLevel rows are a centred, max-width container, which
+     would otherwise leave pale gutters either side of the dark ground.
+     Delete these four lines to sit inside the row instead. */
+  width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  overflow-x:clip;}
 .ww-card{
   position:relative;width:100%;max-width:520px;
   background:#faf5f0;border-radius:10px;padding:clamp(28px,4vw,42px);color:#222;
   box-shadow:0 30px 80px -20px rgba(46,33,28,.6);
-  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;}
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  line-height:1.65;}
+.ww-card p{margin:0;}
 .ww-eyebrow{
   font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
   color:#7a5540;display:block;margin-bottom:12px;}
 .ww-title{
-  font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.8rem;
-  line-height:1.12;margin:0 0 12px;color:#222;}
-.ww-sub{margin:0;color:#5f544c;font-size:.98rem;line-height:1.6;}
+  font-family:'DM Serif Display',Georgia,'Times New Roman',serif;font-weight:400;
+  font-size:1.8rem;line-height:1.12;margin:0 0 12px;color:#222;}
+.ww-sub{color:#5f544c;font-size:.98rem;line-height:1.6;}
 .ww-form{margin-top:22px;}
 .ww-form iframe{width:100%;border:0;display:block;min-height:340px;transition:height .2s ease;}
 .ww-fine{margin-top:14px;font-size:.78rem;line-height:1.5;color:#6e5a4c;text-align:center;opacity:.9;}
 </style>
 
-<div class="at-page" id="top">
+<section class="ww-stage" id="top">
+  <div class="ww-card">
+    <span class="ww-eyebrow">The Weekly Wrap-Up</span>
+    <h1 class="ww-title">One letter. Every week.</h1>
+    <p class="ww-sub">Add your name and email &mdash; it starts this week.</p>
 
+    <div class="ww-form">
+      <!-- The live form (id wDko2EkmGCWPQJcqvku9) — the same one the popup
+           uses, so submissions land in exactly the same place. -->
+      <iframe
+          src="https://links.assatathomas.com/widget/form/wDko2EkmGCWPQJcqvku9"
+          id="page-wDko2EkmGCWPQJcqvku9"
+          title="The Weekly Wrap-Up"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-activation-type="alwaysActivated"
+          data-deactivation-type="neverDeactivate"
+          data-form-name="The Weekly Wrap-Up"
+          data-layout-iframe-id="page-wDko2EkmGCWPQJcqvku9"
+          data-form-id="wDko2EkmGCWPQJcqvku9"
+          data-cookie-consent="true"
+          data-cookie-consent-provider="auto"
+          style="width:100%;border:none;display:block"></iframe>
+    </div>
 
-    <!-- =========================================================
-         HERO — the signup card, pixel-matched to the popup.
-         Same cream (#faf5f0), same 10px radius, same 520px cap,
-         same eyebrow / DM Serif title / fine print, same live form.
-         No close button: there is nothing to close on a page.
-         ========================================================= -->
-    <section class="ww-stage">
-      <div class="ww-card">
-        <span class="ww-eyebrow">The Weekly Wrap-Up</span>
-        <h1 class="ww-title">One letter. Every week.</h1>
-        <p class="ww-sub">Add your name and email &mdash; it starts this week.</p>
+    <p class="ww-fine">Your details stay private. Unsubscribe any time.</p>
+  </div>
+</section>
 
-        <div class="ww-form">
-          <!-- The live GHL form (id wDko2EkmGCWPQJcqvku9) — the same one the
-               popup uses, so submissions land in exactly the same place. -->
-          <iframe
-              src="https://links.assatathomas.com/widget/form/wDko2EkmGCWPQJcqvku9"
-              id="page-wDko2EkmGCWPQJcqvku9"
-              title="The Weekly Wrap-Up"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-activation-type="alwaysActivated"
-              data-deactivation-type="neverDeactivate"
-              data-form-name="The Weekly Wrap-Up"
-              data-layout-iframe-id="page-wDko2EkmGCWPQJcqvku9"
-              data-form-id="wDko2EkmGCWPQJcqvku9"
-              data-cookie-consent="true"
-              data-cookie-consent-provider="auto"
-              style="width:100%;border:none;display:block"></iframe>
-        </div>
-
-        <p class="ww-fine">Your details stay private. Unsubscribe any time.</p>
-      </div>
-    </section>
-
-    <!-- ================= WHAT YOU GET ================= -->
-    <section class="at-band at-band--cream">
-      <div class="at-wrap">
-        <div class="at-head at-head--center">
-          <span class="at-eyebrow">What lands in your inbox</span>
-          <h2 class="at-h2">Short, useful, and worth the open.</h2>
-        </div>
-
-        <div class="at-grid at-g3" style="margin-top:38px">
-          <article class="at-card">
-            <span class="at-card__num">01</span>
-            <h3 class="at-h4">A welcome pack</h3>
-            <p class="at-body">Practical tools you can use straight away &mdash; not a drip sequence
-            that takes six weeks to get to the point.</p>
-          </article>
-
-          <article class="at-card">
-            <span class="at-card__num">02</span>
-            <h3 class="at-h4">First access to dates</h3>
-            <p class="at-body">Mental Health Matters sessions, brunches and pop-ups go to this list
-            before they go anywhere else. Seats are limited and they do fill.</p>
-          </article>
-
-          <article class="at-card">
-            <span class="at-card__num">03</span>
-            <h3 class="at-h4">One letter a week</h3>
-            <p class="at-body">What I'm reading and rethinking, where I'll be speaking, and one thing
-            you can actually use this week. No filler.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PROOF ================= -->
-    <section class="at-band at-band--white">
-      <div class="at-wrap">
-        <div class="at-head at-head--center">
-          <span class="at-eyebrow">From people I work with</span>
-          <h2 class="at-h2">The same voice you'll get in your inbox.</h2>
-        </div>
-
-        <div class="at-grid at-g2" style="margin-top:38px">
-          <blockquote class="at-quote">
-            <p>Assata has a special gift. She distills your story down to its issues and speaks to
-            them directly with confidence.</p>
-            <footer>Individual client</footer>
-          </blockquote>
-
-          <blockquote class="at-quote">
-            <p>No pressure and no judgement. She is honest in a supportive way &mdash; she feels more
-            like a friend or family member who cares.</p>
-            <footer>Couples client</footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FAQ ================= -->
-    <section class="at-band at-band--sand">
-      <div class="at-wrap" style="max-width:760px">
-        <div class="at-head at-head--center">
-          <span class="at-eyebrow">Before you sign up</span>
-          <h2 class="at-h2">Fair questions.</h2>
-        </div>
-
-        <div class="at-faq" style="margin-top:34px">
-          <details>
-            <summary>How often will you email me?</summary>
-            <p class="at-body">Once a week. That's it. No daily sends, no surprise sequences.</p>
-          </details>
-
-          <details>
-            <summary>Is this therapy?</summary>
-            <p class="at-body">No. The Weekly Wrap-Up is educational and reflective writing, not
-            clinical care, and subscribing doesn't create a counselor&ndash;client relationship. If
-            you'd like to work together, <a href="/contact">get in touch</a>.</p>
-          </details>
-
-          <details>
-            <summary>Can I unsubscribe?</summary>
-            <p class="at-body">Any time, in one click, from the bottom of any email. No hard feelings
-            and no exit survey.</p>
-          </details>
-
-          <details>
-            <summary>What do you do with my email address?</summary>
-            <p class="at-body">I send you the Weekly Wrap-Up. It is never sold, rented, or shared.</p>
-          </details>
-        </div>
-
-        <div class="at-btns" style="justify-content:center;margin-top:34px">
-          <a class="at-btn" href="#top">Sign me up</a>
-          <a class="at-btn at-btn--ghost" href="/mhm">See Mental Health Matters</a>
-        </div>
-      </div>
-    </section>
-
-  
-</div>
-
-<!-- Sizes the embedded GHL form iframe to its content. Required. -->
+<!-- Sizes the embedded form iframe to its content. Required. -->
 <script src="https://links.assatathomas.com/js/form_embed.js"></script>
