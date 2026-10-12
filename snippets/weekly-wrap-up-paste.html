@@ -16,7 +16,13 @@
 <style>
 .ww-stage,.ww-stage *,.ww-stage *::before,.ww-stage *::after{box-sizing:border-box;}
 .ww-stage{
-  background:#2e211c;
+  /* Warm brown gradient: a soft glow high and centre, falling off to a
+     darker edge, so the card reads as lit from behind. All three stops
+     sit in the brown family at low saturation — no orange cast.
+     Swap the two lines below for a flat ground: background:#2e211c;  */
+  background:
+    radial-gradient(120% 90% at 50% 8%, rgba(122,85,64,.42) 0%, rgba(122,85,64,0) 62%),
+    linear-gradient(168deg, #3a2a22 0%, #2e211c 48%, #241a16 100%);
   padding:clamp(48px,8vw,96px) 20px;
   display:flex;align-items:center;justify-content:center;
   /* Full-bleed: GoHighLevel rows are a centred, max-width container, which
