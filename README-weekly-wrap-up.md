@@ -38,18 +38,34 @@ Branded, but heavier to load than the raw form link. Not yet applied to the live
 
 ## `pages/weekly-wrap-up.html`
 
-A dedicated landing page whose form is visible on arrival — no popup, no click. Built
-with the live site's own CSS, fonts (DM Serif Display / DM Sans), header and footer, so
-it matches exactly. Sections: hero + form, what you get, two testimonials, FAQ.
+A dedicated landing page whose signup card is a visual match for the popup: the same
+`#faf5f0` cream, 10px radius, 520px cap, clamp padding, shadow, eyebrow, DM Serif title,
+body copy and fine print — all values lifted from the live site's own `.atnl-*` rules.
+It sits on an espresso band so it reads like the popup over its dimmed backdrop. There is
+no close button, since there is nothing to close on a page.
 
-**Status: unfinished.** Paused once the standalone form link turned out to answer the
-original question. Before using it:
+The form is the **real GHL embed** (`wDko2EkmGCWPQJcqvku9`), the same one the popup uses,
+so submissions land in exactly the same place. `form_embed.js` is included to size the
+iframe to its content.
 
-- [ ] Replace the fallback `<form>` in the `.at-freecard` block with the real GHL embed
-      (instructions are in a comment right above it). As written the form is styled but
-      submits nowhere.
-- [ ] Create the page in GHL at `/weekly-wrap-up` and paste the body in.
-- [ ] Point the footer's "The Weekly Wrap-Up" link at it instead of `/events#newsletter`.
+Below the card: what you get (3-up), two testimonials, and a four-item FAQ — all in the
+site's own classes, with the live header and footer.
+
+Verified by rendering in Chromium at 1291px and at 390px: form loads, sections render,
+no horizontal overflow on mobile.
+
+### To publish it
+
+- [ ] Create a page in GHL at `/weekly-wrap-up` and paste in everything from `<header>`
+      through `</footer>`. The site-wide CSS already covers the `at-*` classes; the
+      `ww-*` block in this file's `<style>` is the only addition needed.
+- [ ] Keep `<script src="https://links.assatathomas.com/js/form_embed.js"></script>` —
+      without it the iframe will not resize to its content.
+- [ ] Point the footer's "The Weekly Wrap-Up" link at `/weekly-wrap-up` instead of
+      `/events#newsletter`.
+- [ ] If you ever paste this body onto a page that also carries the popup, change the
+      iframe's `id` so it does not collide with the popup's.
+
 
 `assets/css/site-extracted.css` is the live site's stylesheet, pulled from the home page
 and kept only as the reference the page was built against.

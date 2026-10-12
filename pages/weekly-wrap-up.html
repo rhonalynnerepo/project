@@ -541,22 +541,30 @@ body.atnl-lock{overflow:hidden;}
 .at-page .at-announce__up{text-transform:uppercase;letter-spacing:.08em;font-weight:400;}
 
 
-/* ---- Weekly Wrap-Up page: form styling (additions only) ---- */
-.ww-form{display:grid;gap:16px;margin-top:22px}
-.ww-field{display:grid;gap:6px}
-.ww-field label{font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:.02em;color:var(--brown)}
-.ww-field input{
-  width:100%;padding:14px 16px;font-family:var(--sans);font-size:1rem;color:var(--ink);
-  background:#fff;border:1px solid var(--line);border-radius:12px;
-  transition:border-color .15s ease,box-shadow .15s ease}
-.ww-field input::placeholder{color:#b4a698}
-.ww-field input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(122,85,64,.16)}
-.ww-form .at-btn{width:100%;justify-content:center;margin-top:4px}
-.ww-fine{font-family:var(--sans);font-size:.8rem;line-height:1.55;color:var(--muted);margin:2px 0 0}
-.ww-status{display:none;padding:12px 15px;border-radius:12px;font-family:var(--sans);font-size:.9rem}
-.ww-status[data-state="ok"]{display:block;background:var(--sand);border:1px solid var(--line);color:var(--espresso)}
-.ww-status[data-state="err"]{display:block;background:#fdf1ec;border:1px solid #e8c4b4;color:#8a3d22}
-@media(max-width:900px){.at-free{grid-template-columns:1fr}}
+/* ---- Weekly Wrap-Up page ----------------------------------------
+   The signup card reproduces the live popup's .atnl-dialog exactly:
+   same #faf5f0, 10px radius, 520px cap, clamp padding and shadow,
+   same eyebrow, DM Serif title, body copy and fine print.
+   ------------------------------------------------------------------ */
+.ww-stage{
+  background:#2e211c;                 /* the dim the popup sits over */
+  padding:clamp(48px,8vw,96px) 20px;
+  display:flex;align-items:center;justify-content:center;}
+.ww-card{
+  position:relative;width:100%;max-width:520px;
+  background:#faf5f0;border-radius:10px;padding:clamp(28px,4vw,42px);color:#222;
+  box-shadow:0 30px 80px -20px rgba(46,33,28,.6);
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;}
+.ww-eyebrow{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+  color:#7a5540;display:block;margin-bottom:12px;}
+.ww-title{
+  font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.8rem;
+  line-height:1.12;margin:0 0 12px;color:#222;}
+.ww-sub{margin:0;color:#5f544c;font-size:.98rem;line-height:1.6;}
+.ww-form{margin-top:22px;}
+.ww-form iframe{width:100%;border:0;display:block;min-height:340px;transition:height .2s ease;}
+.ww-fine{margin-top:14px;font-size:.78rem;line-height:1.5;color:#6e5a4c;text-align:center;opacity:.9;}
 
 </style>
 </head>
@@ -573,63 +581,38 @@ body.atnl-lock{overflow:hidden;}
 
   <main>
 
-    <!-- ================= HERO + FORM (form is visible on arrival) ================= -->
-    <section class="at-band at-band--brand">
-      <div class="at-wrap at-free">
-        <div>
-          <span class="at-eyebrow" style="color:rgba(255,255,255,.82)">The Weekly Wrap-Up</span>
-          <h1 class="at-h1" style="color:#fff">One letter.<br>Every week.</h1>
-          <p class="at-lead">A short, practical note from me <strong style="color:#fff">every week</strong>
-          &mdash; what I'm reading and rethinking, where I'll be speaking next, and one thing you can
-          actually use. You'll get a round-up too, so nothing gets lost if life gets loud.</p>
-          <p class="at-body" style="margin-top:18px;color:rgba(255,255,255,.9)">Free. No daily emails.
-          No filler. Unsubscribe any time.</p>
+    <!-- =========================================================
+         HERO — the signup card, pixel-matched to the popup.
+         Same cream (#faf5f0), same 10px radius, same 520px cap,
+         same eyebrow / DM Serif title / fine print, same live form.
+         No close button: there is nothing to close on a page.
+         ========================================================= -->
+    <section class="ww-stage">
+      <div class="ww-card">
+        <span class="ww-eyebrow">The Weekly Wrap-Up</span>
+        <h1 class="ww-title">One letter. Every week.</h1>
+        <p class="ww-sub">Add your name and email &mdash; it starts this week.</p>
+
+        <div class="ww-form">
+          <!-- The live GHL form (id wDko2EkmGCWPQJcqvku9) — the same one the
+               popup uses, so submissions land in exactly the same place. -->
+          <iframe
+              src="https://links.assatathomas.com/widget/form/wDko2EkmGCWPQJcqvku9"
+              id="page-wDko2EkmGCWPQJcqvku9"
+              title="The Weekly Wrap-Up"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-activation-type="alwaysActivated"
+              data-deactivation-type="neverDeactivate"
+              data-form-name="The Weekly Wrap-Up"
+              data-layout-iframe-id="page-wDko2EkmGCWPQJcqvku9"
+              data-form-id="wDko2EkmGCWPQJcqvku9"
+              data-cookie-consent="true"
+              data-cookie-consent-provider="auto"
+              style="width:100%;border:none;display:block"></iframe>
         </div>
 
-        <div>
-          <!-- ============================================================
-               THE FORM. This is the whole point of the page — it is visible
-               immediately, with no button to click first.
-
-               TO CONNECT IT: delete this entire <div class="at-freecard">
-               block and paste your GoHighLevel form embed in its place.
-               Get it at: Sites > Forms > Builder > The Weekly Wrap-Up >
-               Integrate > Embed Code. It looks like this:
-
-               <iframe src="https://api.leadconnectorhq.com/widget/form/FORM_ID"
-                       style="width:100%;height:480px;border:none;border-radius:20px"
-                       id="inline-FORM_ID" title="The Weekly Wrap-Up"></iframe>
-               <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-
-               Until you do, the form below is styled correctly but does not
-               submit anywhere.
-               ============================================================ -->
-          <div class="at-freecard">
-            <h2 class="at-h4" style="margin-top:0">Add your name and email</h2>
-            <p class="at-body" style="margin-top:6px">It starts this week.</p>
-
-            <form class="ww-form" data-ww-form novalidate>
-              <div class="ww-field">
-                <label for="ww-name">First name</label>
-                <input id="ww-name" name="first_name" type="text" autocomplete="given-name"
-                       placeholder="Assata" required>
-              </div>
-
-              <div class="ww-field">
-                <label for="ww-email">Email address</label>
-                <input id="ww-email" name="email" type="email" autocomplete="email"
-                       placeholder="you@example.com" required>
-              </div>
-
-              <div class="ww-status" role="status" tabindex="-1"></div>
-
-              <button class="at-btn at-btn--wide" type="submit">Send me the Weekly Wrap-Up</button>
-
-              <p class="ww-fine">One letter a week. Unsubscribe any time &mdash; every email has a
-              one-click link. Your address stays private and is never sold.</p>
-            </form>
-          </div>
-        </div>
+        <p class="ww-fine">Your details stay private. Unsubscribe any time.</p>
       </div>
     </section>
 
@@ -641,7 +624,7 @@ body.atnl-lock{overflow:hidden;}
           <h2 class="at-h2">Short, useful, and worth the open.</h2>
         </div>
 
-        <div class="at-g3" style="margin-top:38px">
+        <div class="at-grid at-g3" style="margin-top:38px">
           <article class="at-card">
             <span class="at-card__num">01</span>
             <h3 class="at-h4">A welcome pack</h3>
@@ -674,7 +657,7 @@ body.atnl-lock{overflow:hidden;}
           <h2 class="at-h2">The same voice you'll get in your inbox.</h2>
         </div>
 
-        <div class="at-g2" style="margin-top:38px">
+        <div class="at-grid at-g2" style="margin-top:38px">
           <blockquote class="at-quote">
             <p>Assata has a special gift. She distills your story down to its issues and speaks to
             them directly with confidence.</p>
@@ -784,6 +767,8 @@ body.atnl-lock{overflow:hidden;}
     </div>
   </footer>
 
+<!-- Resizes the embedded GHL form iframe to its content. Required. -->
+<script src="https://links.assatathomas.com/js/form_embed.js"></script>
 <script>
 
   (function () {
@@ -877,24 +862,6 @@ body.atnl-lock{overflow:hidden;}
     }
   })();
   
-
-  (function(){
-    var f=document.querySelector('[data-ww-form]'); if(!f) return;
-    f.addEventListener('submit',function(e){
-      if(f.getAttribute('action')) return;      /* real endpoint set: let it post */
-      e.preventDefault();
-      var s=f.querySelector('.ww-status');
-      var email=f.querySelector('#ww-email');
-      if(!email.value || email.value.indexOf('@')<1){
-        s.setAttribute('data-state','err');
-        s.textContent='Please enter a valid email address.'; email.focus(); return;
-      }
-      s.setAttribute('data-state','ok');
-      s.textContent="You're on the list \u2014 watch your inbox this week.";
-      f.reset();
-    });
-  })();
-
 </script>
 </body>
 </html>
