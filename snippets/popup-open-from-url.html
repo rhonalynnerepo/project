@@ -1,0 +1,50 @@
+<!-- ============================================================
+     Open the Weekly Wrap-Up popup from a URL.
+
+     WHERE TO PASTE
+     GoHighLevel > Sites > (assatathomas.com) > Settings >
+     Custom Code > Footer Tracking Code. Paste this whole block,
+     <script> tags included. Save, then publish.
+
+     THE LINKS IT CREATES (work on any page of the site)
+       https://assatathomas.com/?subscribe=1
+       https://assatathomas.com/events?subscribe=1
+       https://assatathomas.com/mhm?subscribe=1
+       https://assatathomas.com/#subscribe
+
+     This is self-contained: it does not depend on the site's
+     existing script, and it mirrors exactly what that script's
+     openNl() does, so the popup looks and behaves identically.
+     ============================================================ -->
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  if (!params.has('subscribe') && location.hash !== '#subscribe') { return; }
+
+  function openNewsletter() {
+    var d = document.getElementById('atNewsletter');
+    if (!d) { return; }
+
+    /* GoHighLevel wraps sections in transformed ancestors, which breaks
+       position:fixed centring. Re-parent to <body>, same as the site script. */
+    if (d.parentNode !== document.body) { document.body.appendChild(d); }
+
+    d.hidden = false;
+    if (typeof d.showModal === 'function') {
+      if (!d.open) { d.showModal(); }
+    } else {
+      d.classList.add('is-open');
+    }
+    document.body.classList.add('atnl-lock');
+
+    var closeBtn = d.querySelector('[data-atnl-close]');
+    if (closeBtn) { closeBtn.focus(); }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', openNewsletter);
+  } else {
+    openNewsletter();
+  }
+})();
+</script>
