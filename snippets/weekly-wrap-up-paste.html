@@ -1,10 +1,11 @@
 <!-- ==================================================================
-     THE WEEKLY WRAP-UP  —  paste this whole block into ONE Custom Code /
-     HTML element on a new GoHighLevel page at /weekly-wrap-up.
+     THE WEEKLY WRAP-UP
+     Paste this whole block into ONE Custom Code / HTML element on a new
+     GoHighLevel page at /weekly-wrap-up.
 
      Self-contained: fonts, stylesheet and the .at-page wrapper are all
      here, because that CSS lives in each page's own code block rather
-     than site-wide. Keep the wrapper — nearly every rule is scoped to it.
+     than site-wide. Keep the wrapper — every rule is scoped to it.
      ================================================================== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,15 +13,10 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
-
-/* ==========================================================================
-   Assata Thomas — scoped stylesheet.
-   Everything lives under .at-page so GoHighLevel's builder styles cannot
-   leak in and this cannot leak out. Do not remove the wrapper element.
-   ========================================================================== */
+/* Warm brown palette: the accent is a mid-tone brown, held at low
+   saturation around hue 25deg so it never reads as orange or rust. */
 .at-page{
-  /* Warm brown palette. The accent is a mid-tone brown, not a rust/orange:
-     hue sits at ~25deg with saturation held low so it never reads orange. */
+
   --brand:#7a5540; --brand-deep:#5c3d2c; --brand-soft:#d3b9a5;
   --espresso:#2e211c; --brown:#6e5a4c; --cream:#faf5f0;
   --sand:#f2ece5; --line:#e3d8cc; --ink:#222222; --muted:#5f544c;
@@ -29,11 +25,10 @@
   --pad:clamp(20px,5vw,64px);
   font-family:var(--sans); color:var(--ink); background:var(--cream);
   font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
-  /* Full-bleed breakout: GoHighLevel rows are a centered, max-width container,
-     which would otherwise leave white gutters either side of every band.
-     This spans the viewport regardless of how the row is configured, and
-     is a no-op when the row is already full width. Delete these four
-     declarations if you ever want the design to sit inside the row. */
+
+  /* Full-bleed breakout. GoHighLevel rows are a centred, max-width
+     container, which would otherwise leave white gutters beside every
+     band. Delete these four lines to sit inside the row instead. */
   width:calc(100vw - var(--at-sbw, 0px));
   margin-left:calc(50% - 50vw + var(--at-sbw, 0px) / 2);
   margin-right:calc(50% - 50vw + var(--at-sbw, 0px) / 2);
@@ -45,7 +40,6 @@
 .at-page img{max-width:100%;display:block;}
 .at-page a{color:inherit;text-decoration:none;}
 
-/* ---------- type ---------- */
 .at-page .at-h1,.at-page .at-h2,.at-page .at-h3,.at-page .at-h4{
   font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em;}
 .at-page .at-h1{font-size:clamp(2.5rem,6.2vw,4.4rem);}
@@ -63,9 +57,6 @@
   color:var(--brand);display:block;margin-bottom:18px;}
 .at-page .at-eyebrow--light{color:var(--brand-soft);}
 
-/* ---------- layout ---------- */
-
-/* ---------- layout ---------- */
 .at-page .at-wrap{max-width:1180px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
 .at-page .at-band{padding:clamp(64px,9vw,120px) 0;}
 .at-page .at-band--cream{background:var(--cream);}
@@ -84,9 +75,6 @@
 .at-page .at-head--center{margin-left:auto;margin-right:auto;text-align:center;}
 .at-page .at-rule{height:1px;background:var(--line);border:0;margin:0;}
 
-/* ---------- buttons ---------- */
-
-/* ---------- buttons ---------- */
 .at-page .at-btn{
   display:inline-flex;align-items:center;gap:.6em;justify-content:center;
   font-family:var(--sans);font-size:.94rem;font-weight:700;letter-spacing:.02em;
@@ -106,9 +94,6 @@
 .at-page .at-textlink:hover{color:var(--brand-deep);}
 .at-page .at-band--dark .at-textlink{color:var(--brand-soft);}
 
-/* ---------- announcement bar ---------- */
-
-/* ---------- cards ---------- */
 .at-page .at-card{
   background:#fff;border:1px solid var(--line);border-radius:6px;
   padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;gap:14px;height:100%;
@@ -122,9 +107,6 @@
 .at-page .at-band--dark .at-card p{color:rgba(255,255,255,.72);}
 .at-page .at-band--dark .at-card:hover{border-color:var(--brand-soft);}
 
-/* ---------- service row ---------- */
-
-/* ---------- quote ---------- */
 .at-page .at-quote{max-width:860px;margin:0 auto;text-align:center;}
 .at-page .at-quote p{
   font-family:var(--serif);font-size:clamp(1.5rem,3.1vw,2.15rem);line-height:1.32;font-style:italic;}
@@ -133,9 +115,6 @@
   text-transform:uppercase;font-weight:700;color:var(--brand);}
 .at-page .at-band--dark .at-quote cite{color:var(--brand-soft);}
 
-/* ---------- testimonials ---------- */
-
-/* ---------- faq ---------- */
 .at-page .at-faq{border-top:1px solid var(--line);}
 .at-page .at-faq details{border-bottom:1px solid var(--line);}
 .at-page .at-faq summary{
@@ -154,13 +133,10 @@
   border-radius:999px;padding:9px 18px;font-size:.86rem;font-weight:700;color:rgba(255,255,255,.85);}
 .at-page .at-social a:hover{border-color:var(--brand-soft);color:#fff;}
 .at-page .at-social svg{width:16px;height:16px;fill:currentColor;flex:none;}
-/* light social row for use on cream/white bands */
+
 .at-page .at-social--light a{border-color:var(--line);color:var(--brand);background:#fff;}
 .at-page .at-social--light a:hover{border-color:var(--brand);color:var(--brand-deep);}
 
-/* ---------- review marquee ----------
-
-/* ---------- responsive ---------- */
 @media (max-width:1120px){
   .at-page .at-nav__links{gap:20px;}
   .at-page .at-nav__links a{font-size:.86rem;}
@@ -175,7 +151,7 @@
   .at-page .at-nav[data-open="true"] .at-nav__links{display:flex;}
   .at-page .at-burger{display:block;}
   .at-page .at-nav__in{position:relative;}
-  /* the CTA stays visible on mobile — it sits beside the burger, compact */
+
   .at-page .at-nav .at-btn{display:inline-flex;margin-left:auto;padding:10px 16px;font-size:.8rem;
     white-space:nowrap;}
   .at-page .at-nav__in{gap:12px;}
@@ -200,20 +176,14 @@
 @media (prefers-reduced-motion:reduce){
   .at-page *{transition:none!important;animation:none!important;}
 }
-/* ---------- free tool + membership offer ---------- */
 
-/* ---------- small-screen safety ----------
-   Display headings are set in vw units, which can push a long line past the
-   viewport on narrow phones. These clamp the headline and let it break rather
-   than overflow — belt and braces, since the wrapper already clips. */
 .at-page{max-width:100vw;}
 @media (max-width:520px){
   .at-page .at-h1{font-size:clamp(2rem,8.6vw,2.7rem);overflow-wrap:break-word;}
   .at-page .at-h2{font-size:clamp(1.7rem,7.2vw,2.2rem);overflow-wrap:break-word;}
 }
-/* ---------- nav hierarchy ----------
 
-/* ---- Weekly Wrap-Up page ----------------------------------------
+/* ---- The signup card ------------------------------------------
    The signup card reproduces the live popup's .atnl-dialog exactly:
    same #faf5f0, 10px radius, 520px cap, clamp padding and shadow,
    same eyebrow, DM Serif title, body copy and fine print.
