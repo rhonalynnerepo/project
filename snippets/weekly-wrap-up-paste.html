@@ -1,0 +1,165 @@
+<style>
+/* ---- Weekly Wrap-Up page ----------------------------------------
+   The signup card reproduces the live popup's .atnl-dialog exactly:
+   same #faf5f0, 10px radius, 520px cap, clamp padding and shadow,
+   same eyebrow, DM Serif title, body copy and fine print.
+   ------------------------------------------------------------------ */
+.ww-stage{
+  background:#2e211c;                 /* the dim the popup sits over */
+  padding:clamp(48px,8vw,96px) 20px;
+  display:flex;align-items:center;justify-content:center;}
+.ww-card{
+  position:relative;width:100%;max-width:520px;
+  background:#faf5f0;border-radius:10px;padding:clamp(28px,4vw,42px);color:#222;
+  box-shadow:0 30px 80px -20px rgba(46,33,28,.6);
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;}
+.ww-eyebrow{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+  color:#7a5540;display:block;margin-bottom:12px;}
+.ww-title{
+  font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.8rem;
+  line-height:1.12;margin:0 0 12px;color:#222;}
+.ww-sub{margin:0;color:#5f544c;font-size:.98rem;line-height:1.6;}
+.ww-form{margin-top:22px;}
+.ww-form iframe{width:100%;border:0;display:block;min-height:340px;transition:height .2s ease;}
+.ww-fine{margin-top:14px;font-size:.78rem;line-height:1.5;color:#6e5a4c;text-align:center;opacity:.9;}
+</style>
+
+<main>
+
+    <!-- =========================================================
+         HERO — the signup card, pixel-matched to the popup.
+         Same cream (#faf5f0), same 10px radius, same 520px cap,
+         same eyebrow / DM Serif title / fine print, same live form.
+         No close button: there is nothing to close on a page.
+         ========================================================= -->
+    <section class="ww-stage">
+      <div class="ww-card">
+        <span class="ww-eyebrow">The Weekly Wrap-Up</span>
+        <h1 class="ww-title">One letter. Every week.</h1>
+        <p class="ww-sub">Add your name and email &mdash; it starts this week.</p>
+
+        <div class="ww-form">
+          <!-- The live GHL form (id wDko2EkmGCWPQJcqvku9) — the same one the
+               popup uses, so submissions land in exactly the same place. -->
+          <iframe
+              src="https://links.assatathomas.com/widget/form/wDko2EkmGCWPQJcqvku9"
+              id="page-wDko2EkmGCWPQJcqvku9"
+              title="The Weekly Wrap-Up"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-activation-type="alwaysActivated"
+              data-deactivation-type="neverDeactivate"
+              data-form-name="The Weekly Wrap-Up"
+              data-layout-iframe-id="page-wDko2EkmGCWPQJcqvku9"
+              data-form-id="wDko2EkmGCWPQJcqvku9"
+              data-cookie-consent="true"
+              data-cookie-consent-provider="auto"
+              style="width:100%;border:none;display:block"></iframe>
+        </div>
+
+        <p class="ww-fine">Your details stay private. Unsubscribe any time.</p>
+      </div>
+    </section>
+
+    <!-- ================= WHAT YOU GET ================= -->
+    <section class="at-band at-band--cream">
+      <div class="at-wrap">
+        <div class="at-head at-head--center">
+          <span class="at-eyebrow">What lands in your inbox</span>
+          <h2 class="at-h2">Short, useful, and worth the open.</h2>
+        </div>
+
+        <div class="at-grid at-g3" style="margin-top:38px">
+          <article class="at-card">
+            <span class="at-card__num">01</span>
+            <h3 class="at-h4">A welcome pack</h3>
+            <p class="at-body">Practical tools you can use straight away &mdash; not a drip sequence
+            that takes six weeks to get to the point.</p>
+          </article>
+
+          <article class="at-card">
+            <span class="at-card__num">02</span>
+            <h3 class="at-h4">First access to dates</h3>
+            <p class="at-body">Mental Health Matters sessions, brunches and pop-ups go to this list
+            before they go anywhere else. Seats are limited and they do fill.</p>
+          </article>
+
+          <article class="at-card">
+            <span class="at-card__num">03</span>
+            <h3 class="at-h4">One letter a week</h3>
+            <p class="at-body">What I'm reading and rethinking, where I'll be speaking, and one thing
+            you can actually use this week. No filler.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROOF ================= -->
+    <section class="at-band at-band--white">
+      <div class="at-wrap">
+        <div class="at-head at-head--center">
+          <span class="at-eyebrow">From people I work with</span>
+          <h2 class="at-h2">The same voice you'll get in your inbox.</h2>
+        </div>
+
+        <div class="at-grid at-g2" style="margin-top:38px">
+          <blockquote class="at-quote">
+            <p>Assata has a special gift. She distills your story down to its issues and speaks to
+            them directly with confidence.</p>
+            <footer>Individual client</footer>
+          </blockquote>
+
+          <blockquote class="at-quote">
+            <p>No pressure and no judgement. She is honest in a supportive way &mdash; she feels more
+            like a friend or family member who cares.</p>
+            <footer>Couples client</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="at-band at-band--sand">
+      <div class="at-wrap" style="max-width:760px">
+        <div class="at-head at-head--center">
+          <span class="at-eyebrow">Before you sign up</span>
+          <h2 class="at-h2">Fair questions.</h2>
+        </div>
+
+        <div class="at-faq" style="margin-top:34px">
+          <details>
+            <summary>How often will you email me?</summary>
+            <p class="at-body">Once a week. That's it. No daily sends, no surprise sequences.</p>
+          </details>
+
+          <details>
+            <summary>Is this therapy?</summary>
+            <p class="at-body">No. The Weekly Wrap-Up is educational and reflective writing, not
+            clinical care, and subscribing doesn't create a counselor&ndash;client relationship. If
+            you'd like to work together, <a href="/contact">get in touch</a>.</p>
+          </details>
+
+          <details>
+            <summary>Can I unsubscribe?</summary>
+            <p class="at-body">Any time, in one click, from the bottom of any email. No hard feelings
+            and no exit survey.</p>
+          </details>
+
+          <details>
+            <summary>What do you do with my email address?</summary>
+            <p class="at-body">I send you the Weekly Wrap-Up. It is never sold, rented, or shared.</p>
+          </details>
+        </div>
+
+        <div class="at-btns" style="justify-content:center;margin-top:34px">
+          <a class="at-btn" href="#top">Sign me up</a>
+          <a class="at-btn at-btn--ghost" href="/mhm">See Mental Health Matters</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<!-- Sizes the embedded GHL form iframe to its content. Required. -->
+<script src="https://links.assatathomas.com/js/form_embed.js"></script>
